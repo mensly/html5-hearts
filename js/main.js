@@ -4,8 +4,8 @@ require({
         jquery: 'lib/jquery-2.0.3.min'
     }
 },
-        ["game", "jquery", "domBinding", "layout", "config"],
-function(game,    $,        domBinding,   layout,   config){
+        ["game", "jquery", "domBinding", "layout", "config", "speech"],
+function(game,    $,        domBinding,   layout,   config,   speech){
     "use strict";
 
     layout.region = $('#game-region')[0];
@@ -44,5 +44,6 @@ function(game,    $,        domBinding,   layout,   config){
         });
         $('#control-region')[0].hidden = false;
     });
+    speech.start();
     game.newGame();
 });
