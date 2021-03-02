@@ -1,6 +1,6 @@
 # Hearts with HTML5
 
-You can try the game at http://mens.ly/hearts/
+You can try the game at https://html5-hearts-voice.herokuapp.com/
 
 # AI
 
