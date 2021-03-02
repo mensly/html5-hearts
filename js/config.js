@@ -1,7 +1,7 @@
 define(function(){
     "use strict";
 
-    var names = ["Chakravartin", "Octavian", "Antony", "Lepidus"],
+    var names = ["Mensly", "Tristan", "Jenny", "Christian"],
         levels = [-1, 1, 2, 3];
 
     try{
