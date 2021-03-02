@@ -23,9 +23,43 @@ function($) {
     recognition.interimResults = false;
     recognition.maxAlternatives = 1;
 
+    function processCommand(input) {
+
+    }
+
+    function processCardSelection(input) {
+        var words = input.split(" ");
+        words.forEach((word, index) => {
+            if (numbers.includes(word)) {
+                var suite = null;
+                if (index + 1 < words.length && suites.includes(words[index + 1])) {
+                    suite = words[index + 1];
+                }
+                else if (index + 2 < words.length && words[index + 1] === "of" && suites.includes(words[index + 2])) {
+                    suite = words[index + 2];
+                }
+                if (suite != null) {
+                    var num = word.charAt(0).toUpperCase();
+                    var query = $( ".card.movable." + suite.substring(0, suite.length - 1) );
+                    query = query.filter(function() {
+                        return $(this).find(".num").text() == num;
+                    });
+                    query.click();
+                }
+            }
+        });
+    }
+
     recognition.onresult = function(event) {
-        var command = event.results[event.results.length - 1][0].transcript.trim();
-        console.log('Command: ' + command);
+        var input = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+        console.log('Input: ' + input);
+        if (numbers.some(number => input.includes(number)) &&
+                 suites.some(suite => input.includes(suite))) {
+            processCardSelection(input)
+        }
+        if (commands.some(command => input.includes(command))) {
+            processCommand(input)
+        }
     }
       
     recognition.onspeechend = function() {
