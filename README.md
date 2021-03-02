@@ -1,6 +1,6 @@
 # Hearts with HTML5
 
-You can try the game at http://hearts.yjyao.com/
+You can try the game at http://mens.ly/hearts/
 
 # AI
 
@@ -16,3 +16,13 @@ The `Ai.js` class can use various `Brains` to make decision.
 
 1. Port `McBrain` and `PomDPBrain` to `C++`, which can be compiled to `asm.js` for better performance
 1. Multi-player support
+
+# Voice Recognition
+Voice Recognition Modification by Michael Ensly (@mensly)
+
+## Commands
+* Name a card to select it, eg "two of clubs" or "queen of spades"
+* Say "pass" to confirm your selection of cards to pass
+* Read the name of the button to click it, eg "go"
+* Say "play" then a name of a card to complete your turn in one command, eg "play ace of clubs"
+* Say "new game" to start a new game
