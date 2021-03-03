@@ -14,6 +14,7 @@ function(game,   $) {
         "three" :   "3",
         "free"  :   "3",
         "four"  :   "4",
+        "for"   :   "4",
         "five"  :   "5",
         "six"   :   "6",
         "sex"   :   "6",
