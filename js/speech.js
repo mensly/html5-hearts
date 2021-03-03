@@ -39,7 +39,7 @@ define(["game", "jquery"], function(game,   $) {
     var suitesGrammar = "#JSGF V1.0; grammar suites; public <suite> = " + Object.keys(suiteMap).join(" | ") + " ;"
     var newGameCommands = [ "new game", "restart" ];
     var playCommands = [ "confirm", "continue", "play", "go", "convert", "ok", "turn" ];
-    var passCommands = [ "pass", "ass", "hass" ];
+    var passCommands = [ "pass", "ass", "hass", "palm" ];
     var commands = newGameCommands.concat(passCommands).concat(playCommands);
     var commandsGrammar = "#JSGF V1.0; grammar commands; public <command> = " + commands.join(" | ") + " ;"
 
@@ -99,7 +99,7 @@ define(["game", "jquery"], function(game,   $) {
                 if (index + 1 < words.length && suites.includes(words[index + 1])) {
                     suite = words[index + 1];
                 }
-                else if (index + 2 < words.length && words[index + 1] === "of" && suites.includes(words[index + 2])) {
+                else if (index + 2 < words.length && suites.includes(words[index + 2])) {
                     suite = words[index + 2];
                 }
                 if (suite != null) {
@@ -172,14 +172,13 @@ define(["game", "jquery"], function(game,   $) {
         }
     }
       
-    recognition.onspeechend = function() {
-    }
+    recognition.end = function() { }
     
     recognition.onnomatch = function(event) { }
     
     recognition.onerror = function(event) {
         console.log("Error occurred in recognition: " + event.error);
-        recognition.start();
+        setTimeout(function() { recognition.start(); }, 100);
     }
 
 
