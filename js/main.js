@@ -44,6 +44,9 @@ function(game,    $,        domBinding,   layout,   config,   speech){
         });
         $('#control-region')[0].hidden = false;
     });
+    $('#demo-but').on("click", function(){
+        window.open("https://youtu.be/-BirNpvxclQ", "_blank");
+    });
     speech.start();
     game.newGame();
 });
