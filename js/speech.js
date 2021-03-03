@@ -1,5 +1,4 @@
-define(["game", "jquery"],
-function(game,   $) {
+define(["game", "jquery"], function(game,   $) {
     "use strict";
     var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
     var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList
@@ -144,7 +143,7 @@ function(game,   $) {
                 input = input.slice(processedInterim.length);
             }
             Object.keys(numberNameMap).some(number => input.includes(number))
-            // console.log("Input: " + input);
+            console.log("Voice Input: " + input);
             var clickedCard = false;
             if (numbers.some(number => input.includes(number)) &&
                     Object.values(suiteMap).some(suite => input.includes(suite))) {
